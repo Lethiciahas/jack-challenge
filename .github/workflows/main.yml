@@ -25,5 +25,18 @@ jobs:
           push: true
           tags:
             lethiciahas/jack-challenge:latest
+            
+  CD:
+    runs-on: ubuntu-latest
+    needs: [CI]
+    steps:
+      - uses: actions/checkout@v3.3.0
+      
+      - name: Definindo o context
+        uses: Azure/k8s-set-context@v3.0
+        with:
+          method: Kubeconfig
+          kubeconfig: ${{secrets.K8S_CONFIG}}
+  
     
       
