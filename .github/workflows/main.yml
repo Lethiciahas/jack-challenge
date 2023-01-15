@@ -24,6 +24,6 @@ jobs:
           file: ./chart/Dockerfile
           push: true
           tags:
-            lethiciahas/jack-chanllenge:latest
+            lethiciahas/jack-challenge:latest
     
       
