@@ -37,6 +37,8 @@ jobs:
         with:
           method: Kubeconfig
           kubeconfig: ${{secrets.K8S_CONFIG}}
+      - name: Instalando Helm
+        uses: Azure/setup-helm@v3
   
     
       
