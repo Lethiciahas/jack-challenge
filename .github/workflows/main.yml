@@ -40,7 +40,7 @@ jobs:
       - name: Helm install
         uses: WyriHaximus/github-action-helm3@v2
         with:
-         exec: helm upgrade wp-lethicia-andrade lethiciahas-chart --create-namespace -n lethicia-andrade --set persistence.enabled=false --set ingress.enabled=true --set ingress.hostname="lethiciahas.stag.jac.bsb.br" --set resources.requests=null --set mariadb.primary.persistence.enabled=false
+         exec: helm install lethicia lethiciahas-chart --create-namespace -n lethicia-andrade --set persistence.enabled=false --set ingress.enabled=true --set ingress.hostname="lethiciahas.stag.jac.bsb.br" --set resources.requests=null --set mariadb.primary.persistence.enabled=false
          kubeconfig: ${{ secrets.K8S_CONFIG }}
   
     
