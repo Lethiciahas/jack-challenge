@@ -21,7 +21,7 @@ jobs:
         uses: docker/build-push-action@v3.3.0
         with:
           context: ./chart
-          file: ./src/Dockerfile
+          file: ./chart/Dockerfile
           push: true
           tags:
             lethiciahas/jack-chanllenge:latest
