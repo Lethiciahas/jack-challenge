@@ -32,15 +32,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3.3.0
       
-      - name: Deploy
-        uses: formelio/helm-deploy@v1.2.0
-        with:
-          release: w-lethicia-andrade
-          namespace: lethicia-andrade
-          chart: ./chart
-          value-files: ./chart/values.yaml
-        env:
-          KUBECONFIG_FILE: ${{ secrets.K8S_CONFIG}}
+      - name: Acesso Cluster
+        run: export KUBECONFIG=${{ secrets.K8S_CONFIG}}
+      - name: conexão
+        run: kubectl get nodes
+      
+      
       
     
       
