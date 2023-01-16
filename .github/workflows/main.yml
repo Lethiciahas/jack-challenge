@@ -34,6 +34,9 @@ jobs:
       
       - name: Adicionando context
         uses: Azure/k8s-set-context@v3.0
+        with:
+          method: kubeconfig
+          kubeconfig: ${{secrets.K8S_CONFIG}}
                
       - name: Helm Deploy
         uses: WyriHaximus/github-action-helm3@v2.0
