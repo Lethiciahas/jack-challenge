@@ -35,7 +35,7 @@ jobs:
       - name: Helm Deploy
         uses: WyriHaximus/github-action-helm3@v2.0
         with:
-         exec: helm upgrade lethiciahas-chart lethiciahas-chart --set ingress.hostname="lethiciahas.stag.jac.bsb.br" --set resources.requests=null --set mariadb.primary.persistence.enabled=false 
+         exec: helm upgrade lethiciahas-chart /chart/lethiciahas-chart/ --set ingress.hostname="lethiciahas.stag.jac.bsb.br" --set resources.requests=null --set mariadb.primary.persistence.enabled=false 
          kubeconfig: ${{secrets.K8S_CONFIG}}
       
     
