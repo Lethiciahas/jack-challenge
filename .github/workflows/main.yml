@@ -31,19 +31,12 @@ jobs:
     needs: [CI]
     steps:
       - uses: actions/checkout@v3.3.0
-      
-      - name: Definindo o context
-        uses: Azure/k8s-set-context@v3.0
-        with:
-          method: Kubeconfig
-          kubeconfig: ${{secrets.K8S_CONFIG}}
-          
+               
       - name: Helm Deploy
-        uses: vimeda/helm@v1.6.8
+        uses: actions/helm3@v2
         with:
-         release: estag
-         namespace: lethicia-andrade
-         chart: /home/lethicia/jack-challenge/chart/lethiciahas-chart
+         exec: helm install wp-lethicia-andrade estag --create-namespace -n lethicia-andrade --set persistence.enabled=false --set ingress.enabled=true --set ingress.hostname="lethiciahas.stag.jac.bsb.br" --set resources.requests=null --set mariadb.primary.persistence.enabled=false 
+         kubeconfig: ${{secrets.K8S_CONFIG}}
       
     
       
