@@ -35,7 +35,7 @@ jobs:
       - name: Deploy to k8s
         uses: paychantorg/action.k8s@v1.0.0
         env:
-          K8S_CONFIG: ${{ secrets.K8S_CONFIG }}
+         KUBE_CONFIG_DATA: ${{ secrets.K8S_CONFIG }}
         with:
           args: |
             helm list
