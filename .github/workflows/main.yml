@@ -44,7 +44,7 @@ jobs:
         run: kubectl get nodes
         
       - name: Deploy - Helm
-        run: helm install lethiciahas ./chart --create-namespace -n lethicia-andrade --set persistence.enabled=false --set ingress.enabled=true --set ingress.hostname="lethiciahas.stag.jac.bsb.br" --set resources.requests=null --values chart/lethiciahas-chart/values.yaml
+        run: helm upgrade lethiciahas ./chart/lethiciahas-chart --create-namespace -n lethicia-andrade --values=./chart/lethiciahas-chart/values.yaml
 
 
       
