@@ -39,16 +39,15 @@ securityContext: {}
 service:
   type: ClusterIP
   port: 80
-  targetPort: 80
 
 ingress:
-  enabled: false
-  className: nginx
+  enabled: true
+  className: ""
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: lethicia-andrade.stag.jac.bsb.br
+    - host: wp-lethicia-andrade.stag.jac.bsb.br
       paths:
         - path: /
           pathType: ImplementationSpecific
