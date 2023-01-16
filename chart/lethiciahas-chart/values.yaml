@@ -48,7 +48,7 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: wp-lethicia-andrade.stag.jac.bsb.br
+    - host: lethicia-andrade.stag.jac.bsb.br
       paths:
         - path: /
           pathType: ImplementationSpecific
