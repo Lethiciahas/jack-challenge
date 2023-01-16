@@ -32,16 +32,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3.3.0
       
-      - name: Deploy to k8s
-        uses: paychantorg/action.k8s@v1.0.0
-        env:
-         KUBE_CONFIG_DATA: ${{ secrets.K8S_CONFIG }}
+      - name: Acesso Kubeconfig
+        uses: azure/setup-kubectl@v2.0
+      - name : acesso 2
+        uses: Azure/k8s-set-context@v2
         with:
-          args: |
-            helm list
-            kubectl get nodes
-      
-      
+         kubeconfig: ${{ secrets.K8S_CONFIG }}
+         
+      - name: teste
+        run: kubectl get nodes
       
     
       
