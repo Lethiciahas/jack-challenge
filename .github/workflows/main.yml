@@ -35,12 +35,12 @@ jobs:
       - name: Setup kubectl
         uses: azure/setup-kubectl@v2.0
         
-      - name : Set Context
+      - name : Setando o context
         uses: Azure/k8s-set-context@v2
         with:
          kubeconfig: ${{ secrets.K8S_CONFIG }}
          
-      - name: teste
+      - name: Listando recursos
         run: kubectl get nodes
         
       - name: Deploy - Helm
