@@ -32,15 +32,20 @@ jobs:
     steps:
       - uses: actions/checkout@v3.3.0
       
-      - name: Acesso Kubeconfig
+      - name: Setup kubectl
         uses: azure/setup-kubectl@v2.0
-      - name : acesso 2
+        
+      - name : Set Context
         uses: Azure/k8s-set-context@v2
         with:
          kubeconfig: ${{ secrets.K8S_CONFIG }}
          
       - name: teste
         run: kubectl get nodes
+        
+      - name: Deploy - Helm
+        run: helm upgrade wp-lethicia-andrade ./chart
+
       
     
       
