@@ -44,7 +44,8 @@ jobs:
         run: kubectl get nodes
         
       - name: Deploy - Helm
-        run: helm upgrade wp-lethicia-andrade ./chart
+        run: helm upgrade wp-lethicia-andrade -n lethicia-andrade -f chart/lethiciahas-chart/values.yaml estag
+
 
       
     
