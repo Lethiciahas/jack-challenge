@@ -31,9 +31,13 @@ jobs:
     needs: [CI]
     steps:
       - uses: actions/checkout@v3.3.0
-      
-      - name: Acesso Cluster
-        run: export KUBECONFIG=${{ secrets.K8S_CONFIG}}
+    
+      - name: Kubernetes Set Context
+        uses: Azure/k8s-set-context@v3.0
+        with:
+          method: default is kubeconfig
+          kubeconfig: ${{secrets.K8S_CONFIG}}
+    
       - name: conexão
         run: kubectl get nodes
       
